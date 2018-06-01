@@ -3,6 +3,7 @@ package com.mvn.service;
 import java.util.List;
 
 import com.mvn.entity.User;
+import com.mvn.util.PagedResult;
 
 public interface IUserService {
 	//增加
@@ -23,4 +24,6 @@ public interface IUserService {
 	//查询多个
 	public List<User> selectUsers(User user);
 	
+	public PagedResult<User> queryByPage(String name,Integer pageNo,Integer pageSize);  
+
 }

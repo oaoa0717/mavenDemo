@@ -15,6 +15,21 @@
   <sql id="Base_Column_List">
     id, create_time, last_login_time, login_name, password, real_name, role, age, name
   </sql>
+  
+  
+  <select id="selectUserByName" parameterType="java.lang.String" resultMap="BaseResultMap">  
+    SELECT *  
+    FROM tb_user  
+    WHERE 1 = 1  
+    <if test="name != null and name !=''">  
+        AND name = #{name,jdbcType=VARCHAR}  
+    </if>  
+    ORDER BY id  
+	</select> 
+  
+  
+  
+  
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
